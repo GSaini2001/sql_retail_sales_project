@@ -3,7 +3,7 @@
 ## 📌 Project Overview
 
 **Project Title**: Retail Sales Analysis Using SQL  
-**Level**: Beginner to Intermediate  
+
 **Database Name**: `retail_sales`
 
 This project demonstrates SQL skills commonly used by data analysts to explore and analyze sales data. It includes database setup, data cleaning, exploratory data analysis (EDA), and solving real business problems using SQL queries. The project is built using a single SQL file and is ideal for learners who want hands-on experience with practical SQL scenarios.
