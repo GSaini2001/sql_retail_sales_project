@@ -1,4 +1,3 @@
-
 # 🛍️ Retail Sales Analysis SQL Project
 
 ## 📌 Project Overview
@@ -7,27 +6,22 @@
 **Level**: Beginner to Intermediate  
 **Database Name**: `retail_sales`
 
-This project demonstrates foundational SQL skills used by data analysts to explore and analyze retail transaction data. It includes database setup, data cleaning, exploratory data analysis, and answers to real business questions using SQL queries. The project is ideal for practicing SQL logic and gaining insights from structured data.
-
----
+This project demonstrates SQL skills commonly used by data analysts to explore and analyze sales data. It includes database setup, data cleaning, exploratory data analysis (EDA), and solving real business problems using SQL queries. The project is built using a single SQL file and is ideal for learners who want hands-on experience with practical SQL scenarios.
 
 ## 🎯 Objectives
 
-1. **Set up the retail sales database** with a structured schema.
-2. **Clean the data** by identifying and removing null or missing records.
-3. **Perform exploratory data analysis (EDA)** to understand patterns.
-4. **Answer business questions** with focused SQL queries.
-
----
+1. Set up the retail sales database and table structure.  
+2. Clean the data by identifying and removing null records.  
+3. Perform exploratory data analysis to understand the dataset.  
+4. Write SQL queries to answer 10 business-related questions.
 
 ## 🗃️ Project Structure
 
 ### 1. Database Setup
 
-- **Database Name**: `retail_sales`
-- **Table**: `retail_sales`
-- **Fields**:
-  - `transactions_id`, `sale_date`, `sale_time`, `customer_id`, `gender`, `age`, `category`, `quantity`, `price_per_unit`, `cogs`, `total_sale`
+- Database: `retail_sales`  
+- Table: `retail_sales`  
+- Fields: `transactions_id`, `sale_date`, `sale_time`, `customer_id`, `gender`, `age`, `category`, `quantity`, `price_per_unit`, `cogs`, `total_sale`
 
 ```sql
 CREATE TABLE retail_sales (
@@ -43,96 +37,13 @@ CREATE TABLE retail_sales (
   cogs FLOAT,
   total_sale FLOAT
 );
-# 🛍️ Retail Sales Analysis SQL Project
+```
 
-## 📌 Project Overview
+### 2. Data Cleaning
 
-**Project Title**: Retail Sales Analysis Using SQL  
-**Level**: Beginner to Intermediate  
-**Database Name**: `retail_sales`
-
-This project demonstrates foundational SQL skills used by data analysts to explore and analyze retail transaction data. It includes database setup, data cleaning, exploratory data analysis, and answers to real business questions using SQL queries. The project is ideal for practicing SQL logic and gaining insights from structured data.
-
----
-
-## 🎯 Objectives
-
-1. **Set up the retail sales database** with a structured schema.
-2. **Clean the data** by identifying and removing null or missing records.
-3. **Perform exploratory data analysis (EDA)** to understand patterns.
-4. **Answer business questions** with focused SQL queries.
-
----
-
-## 🗃️ Project Structure
-
-### 1. Database Setup
-
-- **Database Name**: `retail_sales`
-- **Table**: `retail_sales`
-- **Fields**:
-  - `transactions_id`, `sale_date`, `sale_time`, `customer_id`, `gender`, `age`, `category`, `quantity`, `price_per_unit`, `cogs`, `total_sale`
-
-```sql
-CREATE TABLE retail_sales (
-  transactions_id INT PRIMARY KEY,
-  sale_date DATE,
-  sale_time TIME,
-  customer_id INT,
-  gender VARCHAR(10),
-  age INT,
-  category VARCHAR(35),
-  quantity INT,
-  price_per_unit FLOAT,
-  cogs FLOAT,
-  total_sale FLOAT
-);
-# 🛍️ Retail Sales Analysis SQL Project
-
-## 📌 Project Overview
-
-**Project Title**: Retail Sales Analysis Using SQL  
-**Level**: Beginner to Intermediate  
-**Database Name**: `retail_sales`
-
-This project demonstrates foundational SQL skills used by data analysts to explore and analyze retail transaction data. It includes database setup, data cleaning, exploratory data analysis, and answers to real business questions using SQL queries. The project is ideal for practicing SQL logic and gaining insights from structured data.
-
----
-
-## 🎯 Objectives
-
-1. **Set up the retail sales database** with a structured schema.
-2. **Clean the data** by identifying and removing null or missing records.
-3. **Perform exploratory data analysis (EDA)** to understand patterns.
-4. **Answer business questions** with focused SQL queries.
-
----
-
-## 🗃️ Project Structure
-
-### 1. Database Setup
-
-- **Database Name**: `retail_sales`
-- **Table**: `retail_sales`
-- **Fields**:
-  - `transactions_id`, `sale_date`, `sale_time`, `customer_id`, `gender`, `age`, `category`, `quantity`, `price_per_unit`, `cogs`, `total_sale`
-
-```sql
-CREATE TABLE retail_sales (
-  transactions_id INT PRIMARY KEY,
-  sale_date DATE,
-  sale_time TIME,
-  customer_id INT,
-  gender VARCHAR(10),
-  age INT,
-  category VARCHAR(35),
-  quantity INT,
-  price_per_unit FLOAT,
-  cogs FLOAT,
-  total_sale FLOAT
-);
-2. Data Exploration & Cleaning
 Performed essential checks and removed incomplete records.
+
+```sql
 -- Record count
 SELECT COUNT(*) FROM retail_sales;
 
@@ -146,54 +57,66 @@ WHERE
     gender IS NULL OR age IS NULL OR category IS NULL OR 
     quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
 
-3. Business Questions Answered
-This project addresses the following key business queries:
+-- Delete nulls
+DELETE FROM retail_sales
+WHERE 
+    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
+    gender IS NULL OR age IS NULL OR category IS NULL OR 
+    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+```
 
-Daily sales on 2022-11-05
+## 📊 Business Questions Answered
 
-Clothing sales with quantity ≥ 4 in November 2022
+This project answers the following key business questions:
 
-Total sales by category
+1. Sales made on `2022-11-05`  
+2. Clothing category transactions with quantity ≥ 4 in November 2022  
+3. Total sales and order count by category  
+4. Average age of customers in the Beauty category  
+5. High-value transactions (`total_sale` > 1000)  
+6. Transactions count by gender and category  
+7. Best-performing months based on average sales  
+8. Top 5 customers by total spend  
+9. Unique customer count per category  
+10. Order count by time shift (Morning, Afternoon, Evening)  
 
-Average customer age for 'Beauty' products
+All queries are included in the `.sql` file.
 
-Transactions with sales > 1000
+## 🛠️ Tools Used
 
-Sales count by gender and category
+- SQL (PostgreSQL / MySQL / SQLite compatible)  
+- SQL execution environment (DB Browser / MySQL Workbench / SQLite Studio / VS Code)  
+- Git & GitHub
 
-Top-performing months by average sale
+## 📄 File Included
 
-Top 5 customers by spend
+- [`sql_retail_sales.sql`](./sql_retail_sales.sql) — contains table creation, data cleaning, and all queries.
 
-Unique customer count per category
+## 📌 Key Insights
 
-Order count by shift (Morning, Afternoon, Evening)
+- Customers span various age groups and product categories.  
+- High-value sales (> 1000) exist across several categories.  
+- Clothing and Beauty were among the top-selling categories.  
+- Ordering patterns vary by time of day, useful for shift-based planning.  
+- Monthly trends reveal seasonal variations in customer behavior.
 
-Each query is written and explained in the file.
-🔧 Tools Used
-SQL (likely MySQL or PostgreSQL)
+## 🚀 How to Use
 
-Any SQL execution environment (DB Browser, MySQL Workbench, SQLite, etc.)
+1. Clone or download this repository.  
+2. Open `sql_retail_sales.sql` in your preferred SQL editor.  
+3. Run each section of the file to explore data and generate insights.  
+4. Modify queries to explore more angles or dig deeper into patterns.
 
-Git & GitHub
-📊 Key Findings
-Sales are highest in specific categories like Clothing and Beauty.
+## 🙋‍♀️ About Me
 
-Multiple transactions exceed 1000 in value — indicating high-value purchases.
+I'm **Gurleen**, an aspiring data analyst with hands-on experience in SQL, Excel, and Python. This SQL project is part of my analytics portfolio and showcases my ability to write clear, efficient queries and solve real-world business problems using data.
 
-Peak sales happen in particular shifts and months.
+📫 **Email**: gurleensaini564@gmail.com
 
-The top 5 customers contribute significantly to overall revenue.
-🚀 How to Use
-Clone the repo or download the .sql file.
 
-Run the script in your SQL environment.
 
-Observe results and modify queries to explore further.
+Thank you for visiting this project! 🌟
 
-🙋‍♀️ About Me
-I'm Gurleen, an aspiring Data Analyst with hands-on experience in SQL, Excel, and Python. This project is part of my analytics portfolio to demonstrate my SQL capabilities and business-thinking mindset.
 
-📫 Contact: gurleensaini564@gmail.com
 
 
